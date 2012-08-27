@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap.min.css" />
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button data-target=".nav-collpse" type="button" class="btn btn-navbar" data-toggle="collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="./index.html" class="brand">Creacion de objetos en javascript</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li>
+							<a href="./index.html">Home</a>
+						</li>
+						<li>
+							<a href="#">Particulas</a>
+						</li>
+						<li>
+							<a href=""></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="container"></div>
+<footer class="footer">
+<div class="container">
+	<p class="pull-right">
+		<a href="#">Back to top</a>
+	</p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<ul class="footer-links"></ul>
+</div>
+</footer>	
+<script type="text/javascript">
+	function Foo(){
+		this.name = "foo";
+	}
+Foo.prototype.sayHello = function(){
+	alert("Hello from " + this.name);
+}
+var myFoo = new Foo();
+myFoo.sayHello();
+
+function Bar(){
+
+}
+Bar.prototype = new Foo();
+Bar.prototype.sayGoodBye = function(){
+	alert("goodbye from " + this.name);
+}
+var myBar = new Bar();
+myBar.sayHello();
+myBar.sayGoodBye();
+
+/**
+ * Embracing prorotypal inheritance
+ */
+
+var foo = {
+	name: "foo",
+	sayHello: function(){
+		alert("Hello from " + this.name);
+	}
+};
+
+foo.sayHello();
+var bar = Object.create(foo);
+bar.sayGoodBye = function(){
+	alert("goodbye from " + this.name);
+}
+bar.sayHello();
+bar.sayGoodBye();
+
+function extend(obj, props){
+	for(prop in props){
+		if(props.hasOwnProperty(prop)){
+			obj[prop] = props[prop];
+		}
+	}
+}
+
+var bar = Object.create(foo);
+extend(bar, {
+sayGoodBye: function(){
+	alert("goodby from " + this.name);
+}
+		})
+	</script>
+</body>
+</html>

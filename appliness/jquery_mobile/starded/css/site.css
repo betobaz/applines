@@ -1,0 +1,6 @@
+.ui-header{
+	background-image:url(../assets/header-bg.png);
+	background-position: 0;
+	background-repeat: repeat;
+	height: 40px;
+}

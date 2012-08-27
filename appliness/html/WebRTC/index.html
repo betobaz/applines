@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body onload="load()">
+		<video id="myVideo" autoplay="autoplay"></video>
+</body>
+<script type="text/javascript">
+	function load(){
+		var video = document.getElementById('myVideo');
+		if(navigator.webkitGetUserMedia){
+			navigator.webkitGetUserMedia('video', 
+					function(stream){video.src = webkitURL.createObjectURL(stream);},
+				function(error){alert('ERROR: ' + error.toString());}
+			);
+		}
+		else{
+			alert('webKitGetUserMedia not sopported');
+		}
+	}
+</script>
+</html>
