@@ -14,10 +14,9 @@
 		bounds;
 
 	function initSystem(){
-		system = Object.create(adc.particleSystem);
-		numParticles = 100;
+		system = adc.particleSystem.extend();
+		numParticles = 200;
 		canvas = document.getElementById("canvas");
-		//context = canvas.getContext("experimental-webgl");
 		context = canvas.getContext("2d");
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
@@ -32,13 +31,11 @@
 	function initParticles(){
 		var i, particle;
 		for(i = 0; i < numParticles; i +=1){
-			particle = Object.create(adc.particle);
-			particle.bounds = bounds;
-			particle.context = context;
-			particle.x = Math.random() * bounds.x2;
-			particle.y = Math.random() * bounds.y2;
-			particle.vx = Math.random() * 10 - 5;
-			particle.vy = Math.random() * 10 - 5;
+			particle = adc.particle.extend({
+				bounds: bounds,
+				context: context
+			});
+			particle.init();
 			system.addParticle(particle);
 		}
 	}

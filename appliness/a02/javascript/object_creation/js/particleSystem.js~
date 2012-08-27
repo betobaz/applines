@@ -11,7 +11,6 @@ adc.particleSystem = {
 				obj[prop] = props[prop];
 			}
 		}
-		return obj;
 	},
 
 	addParticle: function(particle){

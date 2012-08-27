@@ -14,8 +14,8 @@
 		bounds;
 
 	function initSystem(){
-		system = Object.create(adc.particleSystem);
-		numParticles = 10;
+		system = adc.particleSystem.extend();
+		numParticles = 200;
 		canvas = document.getElementById("canvas");
 		//context = canvas.getContext("experimental-webgl");
 		context = canvas.getContext("2d");

@@ -16,7 +16,7 @@ adc.particle = {
 		var prop, obj;
 		obj = Object.create(this);
 		for(prop in props){
-			if(props.hasOwnProperty(prop)){
+			if(prop.hasOwnProperty(prop)){
 				obj[prop] = props[prop];
 			}
 		}
