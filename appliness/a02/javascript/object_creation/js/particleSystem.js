@@ -20,7 +20,7 @@ adc.particleSystem = {
 
 	update: function(){
 		var i,
-				numParticles = this.particles.length;
+			numParticles = this.particles.length;
 
 		for(i = 0; i < numParticles; i += 1){
 			this.particles[i].update();

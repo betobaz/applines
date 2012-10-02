@@ -54,16 +54,6 @@ adc.particle = {
 			this.y = this.bounds.y2;
 			this.vy *= this.bounce;
 		}
-	},
-
-	render: function(){
-		if(this.context === null){
-			throw new Error("Context need to be set on particle ");
-		}
-		this.context.fillStyle = this.color;
-		this.context.fillRect(this.x - 1.5, this.y - 1.5, 3, 3);
-
 	}
-
 
 };
