@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Test 1</title>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0.beta6/handlebars.min.js"></script>
+	<script type="text/x-handlebars-template" id="result-template">
+		<h2>Your Bio</h2>
+		<p>
+			Your name is {{firstname}} {{lastname}} and you are {{age}} years old.
+		</p>
+	</script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<h2>Render Simple Bio</h2>
+	<input type="text" name="firstname" id="firstname" placeholder="First Name" ><br />
+	<input type="text" name="latname" id="lastname" placeholder="Last Name"><br /> 
+	<input type="number" name="age" id="age" placeholder="Age">
+	<button id="demoButton">Demo</button>
+
+	<div id="resultDiv"></div>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function(){
+			var source = document.querySelector("#result-template").innerHTML,
+				template = Handlebars.compile(source);
+			document.querySelector('#demoButton').addEventListener("click", function(){
+				var fname = document.querySelector("#firstname").value,
+					lname = document.querySelector("#lastname").value,
+					age = document.querySelector("#age").value;
+
+				var html = template({
+					firstname: fname,
+					lastname: lname,
+					age: age
+				});
+
+				document.querySelector('#resultDiv').innerHTML = html;
+			});
+
+		})
+	</script>
+</body>
+</html>

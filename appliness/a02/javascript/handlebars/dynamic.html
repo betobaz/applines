@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Test 1</title>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0.beta6/handlebars.min.js"></script>
+	<script type="text/x-handlebars-template" id="result-template">
+		<h2>Your Favorite Things</h2>
+		{{#if things}}
+			<ul>
+			{{#each things}}
+				<li>{{this}}</li>
+			{{/each}}
+			</ul>
+		{{else}}
+			<p>Apparently, you like nothing. Poor you
+			</p>
+		{{/if}}		
+	</script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<h2>List of Things</h2>
+	<p>Enter a comma-separated list of things you like.</p>
+	<input type="" id="things" placeholder="Things you like...">
+	<br>
+	<button id="demoButton">Demo</button>	
+
+	<div id="resultDiv"></div>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function(){
+			var source = document.querySelector("#result-template").innerHTML,
+				template = Handlebars.compile(source);
+			document.querySelector('#demoButton').addEventListener("click", function(){
+				var things = document.querySelector("#things").value;
+
+				if(things.length) var arrThings = things.split(",");
+
+				var html = template({
+					things: arrThings
+				});
+
+				document.querySelector('#resultDiv').innerHTML = html;
+			});
+
+		})
+	</script>
+</body>
+</html>
